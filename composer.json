@@ -28,12 +28,6 @@
         "psr-4": {
     
             "Softpyramid\\Authorization\\": "src",
-            "Softpyramid\\Authorization\\Controllers\\": "src/Http/Controllers",
-            "Softpyramid\\Authorization\\Services\\": "src/Services",
-            "Softpyramid\\Authorization\\Repositories\\": "src/Repositories",
-            "Softpyramid\\Authorization\\Contracts\\": "src/Contracts",
-            "Softpyramid\\Authorization\\Models\\": "src/Models",
-            "Softpyramid\\Authorization\\Models\\Traits\\": "src/Models/Traits",
             "Softpyramid\\Authorization\\Middleware\\": "src/Http/Middleware"
         }
     }

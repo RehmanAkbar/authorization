@@ -13,7 +13,7 @@ class AuthorizationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include __DIR__.'/routes.php';  
+
         $this->loadViewsFrom(__DIR__.'/views', 'authorization');
 
         $this->publishes([
@@ -34,7 +34,7 @@ class AuthorizationServiceProvider extends ServiceProvider
     }
     protected function getPermissions() 
     {
-        return ($this->app->make('Softpyramid\Authorization\Repositories\PermissionRepository')->withRoles());
+        return ($this->app->make('App\Erp\Repositories\PermissionRepository')->withRoles());
     }
     private function isDBReady() 
     {
