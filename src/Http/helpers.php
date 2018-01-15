@@ -28,11 +28,3 @@ if (!function_exists('parseDate')) {
 }
 
 
-if (!function_exists('getCloudPath')) {
-
-    function getCloudPath($file) {
-
-        return Storage::cloud()->url($file->path);
-    }
-}
-
