@@ -2,7 +2,10 @@
 
 namespace Softpyramid\Authorization;
 
-use Illuminate\Support\ServiceProvider;
+use App\Erp\Models\User;
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AuthorizationServiceProvider extends ServiceProvider
 {
@@ -11,7 +14,7 @@ class AuthorizationServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(GateContract $gate)
     {
 
         $this->loadViewsFrom(__DIR__.'/views', 'authorization');
