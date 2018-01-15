@@ -18,5 +18,12 @@
             "Softpyramid\\Authorization\\": "src",
             "Softpyramid\\Authorization\\Middleware\\": "src/Http/Middleware"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Softpyramid\\Authorization\\AuthorizationServiceProvider"
+            ]
+        }
     }
 }
