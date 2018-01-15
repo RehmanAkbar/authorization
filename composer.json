@@ -19,7 +19,7 @@
         "flynsarmy/csv-seeder": " 1.0.*",
         "intervention/image": "^2.4"
     },
-    
+    "minimum-stability": "dev",
     "autoload": {
         "classmap": [
             "database/seeds",
