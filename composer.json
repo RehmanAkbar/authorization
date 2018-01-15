@@ -13,10 +13,6 @@
     },
     "minimum-stability": "dev",
     "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "psr-4": {
     
             "Softpyramid\\Authorization\\": "src",
