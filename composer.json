@@ -1,0 +1,38 @@
+{
+    "name": "softpyramid/authorization",
+    "description": "Authorization package by Soft Pyramid",
+    "authors": [
+        {
+            "name": "Rehman Akbar",
+            "email": "rehman.akbar@softpyramid.com"
+        }
+    ],
+
+    "require": {
+        "laravelcollective/html": "^5.4.0",
+        "nao-pon/flysystem-google-drive": " ~1.1",
+        "spatie/activitylog": "^2.4",
+        "laracasts/flash": "^3.0",
+        "barryvdh/laravel-dompdf": "^0.8.1",
+        "doctrine/dbal": "v2.5.13",
+        "fideloper/proxy": "~3.3",
+        "flynsarmy/csv-seeder": " 1.0.*",
+        "intervention/image": "^2.4"
+    },
+    "minimum-stability": "dev-develop",
+    "autoload": {
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+    
+            "Softpyramid\\Authorization\\": "src",
+            "Softpyramid\\Authorization\\Controllers\\": "src/Http/Controllers",
+            "Softpyramid\\Authorization\\Services\\": "src/Services",
+            "Softpyramid\\Authorization\\Repositories\\": "src/Repositories",
+            "Softpyramid\\Authorization\\Contracts\\": "src/Contracts",
+            "Softpyramid\\Authorization\\Models\\": "src/Models"
+        }
+    }
+}

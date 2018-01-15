@@ -1,0 +1,7 @@
+@text('name'=>'name','trans'=>'users','options'=>['required' => 'required'])
+@text('name'=>'email','trans'=>'users','options'=>['required' => 'required'])
+@text('name'=>'zip_code','trans'=>'users','options'=>[])
+@select('name'=>'city_id','trans'=>'users','list'=>$cities,'options'=>['class' =>'js-example-basic-multiple js-states form-control'],'selected'=>(isset($user) ? $user->city_id : $cities ))
+@select('name'=>'office_id','trans'=>'users','list'=>$offices,'options'=>['class' =>'js-example-basic-multiple js-states form-control'],'selected'=>(isset($user) ? $user->office_id : $offices ))
+@select('name'=>'user_type_id','trans'=>'users','list'=>$user_types,'options'=>['class' =>'js-example-basic-multiple js-states form-control'],'selected'=>(isset($user) ? $user->user_type_id : $user_types ))
+@select('name'=>'roles[]','trans'=>'users','list'=>$roles,'options'=>['class' =>'js-example-basic-multiple js-states form-control',  'multiple'=>'multiple'],'selected'=>(isset($user) ? $user->roleIdsArray() : $roles ))
