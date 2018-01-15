@@ -26,13 +26,6 @@ Route::group(['prefix'=>'administration'],function (){
         Route::resource('user', 'UsersController');
         Route::resource('usertypes', 'UserTypesController');
     });
-
-    Route::resource('companies', 'CompaniesController');
-    Route::resource('offices', 'OfficesController');
-
-    Route::resource('countries', 'CountriesController');
-    Route::resource('cities', 'CitiesController');
-
 });
 
 /********************************************************** End Administration Routes ***********************************************/

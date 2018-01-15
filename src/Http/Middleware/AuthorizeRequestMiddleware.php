@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Softpyramid\Authorization\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Access\Gate;

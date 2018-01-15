@@ -13,27 +13,14 @@ class AuthorizationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include __DIR__.'/routes.php';
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
-        $this->loadTranslationsFrom(__DIR__.'/lang/en', 'authorization');
-
-        $this->publishes([
-            __DIR__.'/migrations' => base_path('database/migrations'),
-        ]);
-
-        $this->publishes([
-            __DIR__.'/lang/en' => resource_path('lang/en'),
-        ]);
-
+        include __DIR__.'/routes.php';  
         $this->loadViewsFrom(__DIR__.'/views', 'authorization');
 
         $this->publishes([
             __DIR__.'/views' => resource_path('views/'),
         ]);
 
-        $this->publishes([
-            __DIR__.'/assets' => public_path(''),
-        ], 'public');
+        $this->registerAllPermissions($gate);
     }
 
     /**
@@ -44,5 +31,35 @@ class AuthorizationServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+    protected function getPermissions() 
+    {
+        return ($this->app->make('Softpyramid\Authorization\Repositories\PermissionRepository')->withRoles());
+    }
+    private function isDBReady() 
+    {
+        $has_records = false;
+        $tables_created = (Schema::hasTable('user_types') and Schema::hasTable('users') and Schema::hasTable('permissions') and Schema::hasTable('roles'));
+
+
+        return $tables_created;
+    }
+    private function registerAllPermissions($gate)
+    {
+
+        /**
+         * Dynamically register permissions with Laravel's Gate.
+         **/
+        if ($this->isDBReady()) //if the db is created and has the records
+        {
+            foreach ($this->getPermissions() as $permission) {
+
+                $gate->define($permission->name, function ($user) use ($permission) {
+
+                    return $user->hasPermission($permission);
+                });
+
+            }
+        }
     }
 }
